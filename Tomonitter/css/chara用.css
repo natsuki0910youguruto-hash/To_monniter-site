@@ -229,6 +229,10 @@
   --glow-color: rgba(172, 39, 143, 0.38);
 }
 
+.resident-list[data-type="fumei"] {
+  --glow-color: rgba(33, 54, 9, 0.38);
+}
+
 /* ===== 発光アニメーション(左) ===== */
 
 .resident-title {
