@@ -4,10 +4,13 @@ document.addEventListener('DOMContentLoaded', () => {
   /* 現住者一覧の全体処理 */
   const tatami = document.querySelector('.tatami');
   const wrapper = document.querySelector('.chara-wrapper');
-  const lists = document.querySelectorAll('.resident-list');
+
+
 
   tatami.addEventListener('click', () => {
     const isOpen = wrapper.classList.toggle('is-open');
+
+     const lists = wrapper.querySelectorAll('.resident-list');
 
     if (isOpen) {
       // 開いたら全部表示
