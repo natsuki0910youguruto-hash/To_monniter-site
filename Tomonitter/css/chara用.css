@@ -176,11 +176,11 @@
 }
 
 .chara-wrapper {
-  margin-left: 1rem;
+  max-height: none;
 }
 
 .chara-wrapper.is-open {
-  max-height: 5000px;
+  max-height: 10000px;
   opacity: 1;
 }
 
@@ -325,13 +325,14 @@
 /* 下の部分*/
 
 .site-footer {
-  margin-top: 120px;
+  margin-top: 150px;
   /* 本文との余白 */
   padding: 40px 20px;
   background: #0e0e0e;
   /* 少し濃い背景 */
   color: rgba(255, 255, 255, 0.6);
   font-size: 14px;
+  position: relative;
 }
 
 .footer-inner {
