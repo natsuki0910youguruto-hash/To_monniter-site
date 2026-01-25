@@ -161,27 +161,27 @@
 }
 
 /* 中身は最初は非表示 */
+/* 中身だけ隠す */
 .resident-content {
   max-height: 0;
   overflow: hidden;
   opacity: 0;
   transition: max-height 0.6s ease, opacity 0.4s ease;
-  margin-left: 1.5rem;
 }
 
-/* 親が開いたら中身全部表示 */
+/* 開いたカテゴリだけ表示 */
 .resident-list.is-open .resident-content {
-  max-height: 3000px;
+  max-height: 5000px;
   opacity: 1;
 }
 
 .chara-wrapper {
-  max-height: none;
+  overflow: hidden;
+  transition: max-height 1s ease;
 }
 
 .chara-wrapper.is-open {
-  max-height: 10000px;
-  opacity: 1;
+  max-height: 20000px; /* デカくてOK */
 }
 
 .resident-title {
