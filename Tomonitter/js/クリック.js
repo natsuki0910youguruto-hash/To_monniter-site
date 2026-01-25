@@ -165,3 +165,37 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
 });
+
+//　スマホ用
+document.addEventListener('DOMContentLoaded', () => {
+
+  const menuBtn = document.querySelector('.menu-btn');
+  const spMenu = document.querySelector('.sp-menu');
+  const overlay = document.querySelector('.menu-overlay');
+  const header = document.querySelector('.site-header');
+
+  /* ===== スマホメニュー ===== */
+  if (menuBtn && spMenu && overlay) {
+    menuBtn.addEventListener('click', () => {
+      spMenu.classList.toggle('is-open');
+      overlay.classList.toggle('is-show');
+    });
+
+    overlay.addEventListener('click', () => {
+      spMenu.classList.remove('is-open');
+      overlay.classList.remove('is-show');
+    });
+  }
+
+  /* ===== スクロールでヘッダー縮小 ===== */
+  if (header) {
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) {
+        header.classList.add('is-small');
+      } else {
+        header.classList.remove('is-small');
+      }
+    });
+  }
+
+});

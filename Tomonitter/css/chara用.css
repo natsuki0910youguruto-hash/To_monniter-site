@@ -599,11 +599,75 @@
   pointer-events: auto;
 }
 
+.menu-btn {
+  display: none;
+}
+
+
 /* スマホ対応用 */
+@keyframes heroShrink {
+  0% {
+    transform: translateY(0) scale(1.2);
+    opacity: 0;
+  }
+
+  30% {
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateY(-120px) scale(0.9);
+    opacity: 1;
+  }
+}
+
+/* スマホ用メニュー：デフォルトは非表示（PC） */
+.menu-btn,
+.sp-menu {
+  display: none;
+}
+
+.sp-menu {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 70%;
+  height: 100vh;
+  background: #111;
+  transition: right 0.3s ease;
+  z-index: 1000;
+}
+
+.sp-menu.is-open {
+  right: 0;
+}
+
+.site-header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 80px;
+  background: rgba(0,0,0,0.8);
+  transition: all 0.3s ease;
+  z-index: 1000;
+}
+
+.site-header h1 {
+  font-size: 20px;
+  transition: font-size 0.3s ease;
+}
+
+.site-header.is-small {
+  height: 56px;
+  background: rgba(0,0,0,0.95);
+}
+
+.site-header.is-small h1 {
+  font-size: 16px;
+}
+
+
 @media (max-width: 768px) {
-  @keyframes heroShrink {
-    100% {
-      transform: translateY(-100px) scale(0.9);
 
       .chara {
         grid-template-columns: 1fr;
@@ -615,6 +679,88 @@
         margin: 0 auto;
         display: block;
       }
-    }
- }
+
+ .hero-title {
+     font-size: clamp(32px, 8vw, 44px); /* PCより大きくしてOK */
+    letter-spacing: 0.08em;
+  }
+
+  .hero-sub {
+    font-size: 14px;
+    letter-spacing: 0.15em;
+  }
+
+  .hero-desc {
+    font-size: 14px;
+  }
+
+  .site-header nav a {
+    font-size: 16px;
+    padding: 14px 16px; /* ← 超重要 */
+    display: block;
+  }
+
+    .site-hero {
+    min-height: 60vh;
+    padding-top: 80px; /* ヘッダー分の逃げ */
+  }
+
+   .hero-inner {
+    transform: translateY(-40px) scale(0.95);
+  }
+
+  .menu-btn {
+    display: block;
+    position: fixed;
+    top: 16px;
+    right: 16px;
+    font-size: 24px;
+    background: none;
+    border: none;
+    color: #fff;
+    z-index: 10001;
+    cursor: pointer;
+  }
+
+  .sp-menu {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 70%;
+    height: 100vh;
+    background: rgba(0,0,0,0.95);
+    padding: 80px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+
+    transform: translateX(100%);
+    transition: transform 0.4s ease;
+    z-index: 10000;
+  }
+
+  .sp-menu a {
+    color: #fff;
+    font-size: 18px;
+    text-decoration: none;
+  }
+
+  .sp-menu.is-open {
+    transform: translateX(0);
+  }
+}
+
+.menu-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  z-index: 900;
+}
+
+.menu-overlay.is-show {
+  opacity: 1;
+  pointer-events: auto;
 }
